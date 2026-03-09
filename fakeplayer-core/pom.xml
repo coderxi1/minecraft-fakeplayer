@@ -90,7 +90,7 @@
             <artifactId>PlaceholderAPI</artifactId>
             <version>SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/../lib/PlaceholderAPI-2.11.6.jar</systemPath>
+            <systemPath>${project.basedir}/../lib/PlaceholderAPI-2.12.2.jar</systemPath>
         </dependency>
 
     </dependencies>
