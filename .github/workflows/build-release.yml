@@ -1,0 +1,67 @@
+name: Build & Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+
+      - name: Cache BuildTools
+        id: cache-buildtools
+        uses: actions/cache@v3
+        with:
+          path: nms/BuildTools.jar
+          key: buildtools
+
+      - name: Download BuildTools & Remapped
+        if: steps.cache-buildtools.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p nms
+          cd nms
+          curl -o BuildTools.jar https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+          java -jar BuildTools.jar --rev 1.21.11 --remapped
+
+      - name: Build with Maven
+        run: mvn clean package -Drevision=${GITHUB_REF_NAME#v} -DskipTests
+
+      - name: Upload jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: fakeplayer.jar
+          path: target/fakeplayer*.jar
+
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download jar
+        uses: actions/download-artifact@v4
+        with:
+          name: fakeplayer.jar
+          path: dist
+
+      - name: Upload build artifacts
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: dist/*.jar
+          tag: ${{ github.ref_name }}
+          overwrite: true
+          file_glob: true
