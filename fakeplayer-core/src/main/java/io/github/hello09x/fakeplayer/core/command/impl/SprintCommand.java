@@ -27,8 +27,8 @@ public class SprintCommand extends AbstractCommand {
                                       .orElse(!fake.isSprinting());
 
         var message = sprinting
-                ? translatable("fakeplayer.command.sprint.success.enabled", text(fake.getName(), WHITE)).color(GRAY)
-                : translatable("fakeplayer.command.sprint.success.disabled", text(fake.getName(), WHITE)).color(GRAY);
+                ? translatableWithPrefix("fakeplayer.command.sprint.success.enabled", text(fake.getName(), WHITE)).color(GRAY)
+                : translatableWithPrefix("fakeplayer.command.sprint.success.disabled", text(fake.getName(), WHITE)).color(GRAY);
         fake.setSprinting(sprinting);
         sender.sendMessage(message);
     }

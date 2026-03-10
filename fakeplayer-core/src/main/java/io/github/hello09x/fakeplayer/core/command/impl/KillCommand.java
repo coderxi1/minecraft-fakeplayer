@@ -33,7 +33,7 @@ public class KillCommand extends AbstractCommand {
             }
         }
         sender.sendMessage(textOfChildren(
-                translatable("fakeplayer.command.kill.success.removed", GRAY),
+                translatableWithPrefix("fakeplayer.command.kill.success.removed", GRAY),
                 space(),
                 text(names.toString())
         ));
