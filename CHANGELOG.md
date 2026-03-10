@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/coderxi1/minecraft-fakeplayer/compare/v1.0.1...v1.1.0) (2026-03-10)
+
+
+### Features
+
+* add message prefix ([3d78d4a](https://github.com/coderxi1/minecraft-fakeplayer/commit/3d78d4a5d3f6a683a0ddd7b244ca224abce87d42))
+* apply dynamic fakeplayer limits to server lag ([1d3d2f0](https://github.com/coderxi1/minecraft-fakeplayer/commit/1d3d2f0121fde9dac7c315194e9d56c9c30055a1))
+
+
+### Bug Fixes
+
+* **typo:** incorrect closing brackets ([316825d](https://github.com/coderxi1/minecraft-fakeplayer/commit/316825d46932d03596ab38fc12e566917216b56f))
+
 ## [1.0.1](https://github.com/coderxi1/minecraft-fakeplayer/compare/v1.0.0...v1.0.1) (2026-03-10)
 
 
