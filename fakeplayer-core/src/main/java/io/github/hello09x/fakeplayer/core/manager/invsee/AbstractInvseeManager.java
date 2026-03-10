@@ -52,10 +52,6 @@ public abstract class AbstractInvseeManager implements InvseeManager {
                 SoundCategory.BLOCKS,
                 0.3F, 1.0F
         );
-        view.setTitle(ComponentUtils.toString(translatable(
-                "fakeplayer.manager.inventory.title",
-                text(whom.getName())
-        ), viewer.locale()));
         return true;
     }
 
