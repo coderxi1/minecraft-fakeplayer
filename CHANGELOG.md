@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/coderxi1/minecraft-fakeplayer/compare/v1.1.1...v1.1.2) (2026-03-10)
+
+
+### Bug Fixes
+
+* cannot use openinv ([1d37025](https://github.com/coderxi1/minecraft-fakeplayer/commit/1d370259e039e7639eea79c282763baa84e16361))
+
 ## [1.1.1](https://github.com/coderxi1/minecraft-fakeplayer/compare/v1.1.0...v1.1.1) (2026-03-10)
 
 
