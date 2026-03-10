@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/coderxi1/minecraft-fakeplayer/compare/v1.0.0...v1.0.1) (2026-03-10)
+
+
+### Bug Fixes
+
+* player invincible in 1.21.10 ([04f1dc3](https://github.com/coderxi1/minecraft-fakeplayer/commit/04f1dc35f5559c41562274475f417871655b6a29))
+
 ## 1.0.0 (2026-03-09)
 
 
