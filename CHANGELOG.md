@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/coderxi1/minecraft-fakeplayer/compare/v1.1.0...v1.1.1) (2026-03-10)
+
+
+### Bug Fixes
+
+* add message prefix ([b2aa685](https://github.com/coderxi1/minecraft-fakeplayer/commit/b2aa685adaea6ee17cd4d6bde91d3eee7f2e9f46))
+
 ## [1.1.0](https://github.com/coderxi1/minecraft-fakeplayer/compare/v1.0.1...v1.1.0) (2026-03-10)
 
 
