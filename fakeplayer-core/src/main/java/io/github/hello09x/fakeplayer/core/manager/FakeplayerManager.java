@@ -509,7 +509,6 @@ public class FakeplayerManager {
         if (this.config.isDetectIp() && this.countByAddress(AddressUtils.getAddress(creator)) >= this.config.getPlayerLimit()-laglevel) {
             throw new CommandException(translatable("fakeplayer.command.spawn.error.ip-limit"));
         }
-        }
     }
 
     public void onDisable() {
