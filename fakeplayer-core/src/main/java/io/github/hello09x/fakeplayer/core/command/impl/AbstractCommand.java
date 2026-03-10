@@ -21,6 +21,7 @@ import java.util.function.Predicate;
 import java.util.logging.Logger;
 
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 
 public abstract class AbstractCommand {
 

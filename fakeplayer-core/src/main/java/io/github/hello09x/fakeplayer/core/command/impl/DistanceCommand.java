@@ -11,6 +11,7 @@ import org.joml.Math;
 import java.util.Objects;
 
 import static net.kyori.adventure.text.Component.*;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.format.NamedTextColor.GRAY;
 import static net.kyori.adventure.text.format.NamedTextColor.WHITE;
 
@@ -26,7 +27,7 @@ public class DistanceCommand extends AbstractCommand {
         var to = sender.getLocation().toBlockLocation();
 
         if (!Objects.equals(from.getWorld(), to.getWorld())) {
-            sender.sendMessage(translatable(
+            sender.sendMessage(translatableWithPrefix(
                     "fakeplayer.command.distance.error.too-far",
                     text(fake.getName(), WHITE)
             ));

@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 
 import static net.kyori.adventure.text.Component.text;
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.format.NamedTextColor.GRAY;
 import static net.kyori.adventure.text.format.NamedTextColor.RED;
 
@@ -31,26 +32,26 @@ public class CmdCommand extends AbstractCommand {
 
         var name = command.command().getName();
         if (!sender.hasPermission(Permission.cmd) && !config.getAllowCommands().contains(name)) {
-            sender.sendMessage(translatable("fakeplayer.command.cmd.error.no-permission", RED));
+            sender.sendMessage(translatableWithPrefix("fakeplayer.command.cmd.error.no-permission", RED));
             return;
         }
 
         if (!sender.isOp() && (name.equals("fakeplayer") || name.equals("fp"))) {
-            sender.sendMessage(translatable("fakeplayer.command.cmd.error.no-permission", RED));
+            sender.sendMessage(translatableWithPrefix("fakeplayer.command.cmd.error.no-permission", RED));
             return;
         }
 
         if (!command.command().testPermission(fake)) {
-            sender.sendMessage(translatable("fakeplayer.command.cmd.error.fakeplayer-has-no-permission", text(fake.getName())).color(RED));
+            sender.sendMessage(translatableWithPrefix("fakeplayer.command.cmd.error.fakeplayer-has-no-permission", text(fake.getName())).color(RED));
             return;
         }
 
         if (!command.execute(fake)) {
-            sender.sendMessage(translatable("fakeplayer.command.cmd.error.execute-failed", RED));
+            sender.sendMessage(translatableWithPrefix("fakeplayer.command.cmd.error.execute-failed", RED));
             return;
         }
 
-        sender.sendMessage(translatable(
+        sender.sendMessage(translatableWithPrefix(
                 "fakeplayer.command.generic.success",
                 GRAY
         ));

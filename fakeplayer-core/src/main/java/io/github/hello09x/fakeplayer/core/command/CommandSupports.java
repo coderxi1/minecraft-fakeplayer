@@ -28,6 +28,7 @@ import java.util.stream.Stream;
 import static io.github.hello09x.devtools.command.Commands.command;
 import static io.github.hello09x.devtools.command.Commands.int32;
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 
 public abstract class CommandSupports {
 

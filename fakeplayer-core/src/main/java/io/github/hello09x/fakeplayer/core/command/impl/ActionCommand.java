@@ -15,6 +15,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.jetbrains.annotations.NotNull;
 
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 
 @Singleton
 public class ActionCommand extends AbstractCommand {
@@ -52,7 +53,7 @@ public class ActionCommand extends AbstractCommand {
 
         actionManager.setAction(fake, action, setting);
         if (!setting.equals(ActionSetting.once()) || sender instanceof ConsoleCommandSender) {
-            sender.sendMessage(translatable("fakeplayer.command.generic.success"));
+            sender.sendMessage(translatableWithPrefix("fakeplayer.command.generic.success"));
         }
     }
 

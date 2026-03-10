@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 
 @Singleton
 public class InvseeCommand extends AbstractCommand {

@@ -30,6 +30,7 @@ import java.util.Optional;
 import java.util.logging.Logger;
 
 import static net.kyori.adventure.text.Component.*;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.event.ClickEvent.runCommand;
 import static net.kyori.adventure.text.format.NamedTextColor.*;
 import static net.kyori.adventure.text.format.TextDecoration.UNDERLINED;
@@ -124,7 +125,7 @@ public class FakeplayerListener implements Listener {
         if (!config.isKickOnDead()) {
             var creator = manager.getCreator(player);
             if (creator != null) {
-                creator.sendMessage(translatable(
+                creator.sendMessage(translatableWithPrefix(
                         "fakeplayer.listener.death.notify",
                         text(player.getName(), GOLD),
                         text("/fp respawn", DARK_GREEN, UNDERLINED).clickEvent(runCommand("/fp respawn " + player.getName()))

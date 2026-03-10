@@ -9,6 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.format.NamedTextColor.GRAY;
 
 @Singleton
@@ -26,15 +27,15 @@ public class ReloadCommand extends AbstractCommand {
 
     public void reload(@NotNull CommandSender sender, @NotNull CommandArguments args) {
         config.reload();
-        sender.sendMessage(translatable("fakeplayer.command.generic.success", GRAY));
+        sender.sendMessage(translatableWithPrefix("fakeplayer.command.generic.success", GRAY));
         if (config.isConfigFileOutOfDate()) {
-            sender.sendMessage(translatable("fakeplayer.configuration.out-of-date", GRAY));
+            sender.sendMessage(translatableWithPrefix("fakeplayer.configuration.out-of-date", GRAY));
         }
     }
 
     public void reloadTranslation(@NotNull CommandSender sender, @NotNull CommandArguments args) {
         translator.reload();
-        sender.sendMessage(translatable(
+        sender.sendMessage(translatableWithPrefix(
                 "fakeplayer.command.generic.success"
         ));
     }

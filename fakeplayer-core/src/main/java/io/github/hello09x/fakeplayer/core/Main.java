@@ -1,5 +1,6 @@
 package io.github.hello09x.fakeplayer.core;
 
+import com.coderxi.plugin.utils.translation.MessageUtils;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import io.github.hello09x.devtools.command.CommandModule;
@@ -81,7 +82,7 @@ public final class Main extends JavaPlugin {
         if (injector.getInstance(FakeplayerConfig.class).isCheckForUpdates()) {
             checkForUpdatesAsync();
         }
-
+        MessageUtils.init(Main.getInstance());
         getLogger().info("Enabled in %d ms".formatted(System.currentTimeMillis() - loadAt));
     }
 

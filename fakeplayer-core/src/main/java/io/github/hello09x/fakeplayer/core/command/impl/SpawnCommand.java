@@ -25,6 +25,7 @@ import java.util.Optional;
 
 import static net.kyori.adventure.text.Component.text;
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.format.NamedTextColor.*;
 
 @Singleton
@@ -76,13 +77,13 @@ public class SpawnCommand extends AbstractCommand {
                    }
                    Component message;
                    if (removedAt == null) {
-                       message = translatable(
+                       message = translatableWithPrefix(
                                "fakeplayer.command.spawn.success.without-lifespan",
                                text(player.getName(), WHITE),
                                text(toLocationString(spawnpoint), WHITE)
                        ).color(GRAY);
                    } else {
-                       message = translatable(
+                       message = translatableWithPrefix(
                                "fakeplayer.command.spawn.success.with-lifespan",
                                text(player.getName(), WHITE),
                                text(toLocationString(spawnpoint), WHITE),
@@ -100,7 +101,7 @@ public class SpawnCommand extends AbstractCommand {
                    if (Throwables.getRootCause(e) instanceof CommandException ce) {
                        scheduler.runTask(Main.getInstance(), () -> sender.sendMessage(ce.component()));
                    } else {
-                       scheduler.runTask(Main.getInstance(), () -> sender.sendMessage(translatable("fakeplayer.command.spawn.error.unknown", RED)));
+                       scheduler.runTask(Main.getInstance(), () -> sender.sendMessage(translatableWithPrefix("fakeplayer.command.spawn.error.unknown", RED)));
                        log.severe(Throwables.getStackTraceAsString(e));
                    }
                    return null;

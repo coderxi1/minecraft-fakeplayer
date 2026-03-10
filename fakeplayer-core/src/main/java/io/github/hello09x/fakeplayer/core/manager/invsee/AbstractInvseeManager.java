@@ -17,6 +17,7 @@ import org.jetbrains.annotations.Nullable;
 
 import static net.kyori.adventure.text.Component.text;
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 
 /**
  * @author tanyaofei

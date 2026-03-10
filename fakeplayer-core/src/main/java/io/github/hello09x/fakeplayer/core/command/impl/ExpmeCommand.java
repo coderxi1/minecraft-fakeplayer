@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static net.kyori.adventure.text.Component.text;
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.format.NamedTextColor.*;
 
 @Singleton
@@ -31,7 +32,7 @@ public class ExpmeCommand extends AbstractCommand {
 
         ExperienceUtils.clean(fake);
         sender.giveExp(exp, false);
-        sender.sendMessage(translatable(
+        sender.sendMessage(translatableWithPrefix(
                 "fakeplayer.command.expme.success",
                 text(fake.getName(), WHITE),
                 text(exp, DARK_GREEN)

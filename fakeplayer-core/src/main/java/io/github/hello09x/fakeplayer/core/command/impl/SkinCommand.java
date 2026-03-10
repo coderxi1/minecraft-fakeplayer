@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.format.NamedTextColor.RED;
 
 @Singleton
@@ -48,7 +49,7 @@ public class SkinCommand extends AbstractCommand {
 
         // 限制请求数, 防止 mojang api 限流
         if (!sender.isOp() && spams.computeIfAbsent(sender, k -> new MutableInt()).getValue() != 0) {
-            sender.sendMessage(translatable("fakeplayer.command.skin.error.too-many-operations", RED));
+            sender.sendMessage(translatableWithPrefix("fakeplayer.command.skin.error.too-many-operations", RED));
             return;
         }
 
@@ -58,7 +59,7 @@ public class SkinCommand extends AbstractCommand {
                             manager.rememberSkin(sender, fake, player);
                             Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
                                 if (success) {
-                                    fake.sendMessage(translatable("fakeplayer.command.generic.success"));
+                                    fake.sendMessage(translatableWithPrefix("fakeplayer.command.generic.success"));
                                 }
                             });
                         });

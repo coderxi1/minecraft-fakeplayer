@@ -20,6 +20,7 @@ import java.util.List;
 import static io.github.hello09x.devtools.command.Commands.*;
 import static io.github.hello09x.fakeplayer.core.command.CommandSupports.*;
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 
 
 @Singleton

@@ -11,6 +11,7 @@ import java.util.Objects;
 
 import static net.kyori.adventure.text.Component.text;
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.format.NamedTextColor.*;
 
 @Singleton
@@ -23,12 +24,12 @@ public class SetCommand extends AbstractCommand {
 
         var modifier = feature.getModifier();
         if (modifier == null) {
-            sender.sendMessage(translatable("fakeplayer.command.config.set.error.invalid-key", RED));
+            sender.sendMessage(translatableWithPrefix("fakeplayer.command.config.set.error.invalid-key", RED));
             return;
         }
 
         modifier.accept(target, value);
-        sender.sendMessage(translatable(
+        sender.sendMessage(translatableWithPrefix(
                 "fakeplayer.command.set.success",
                 text(target.getName(), WHITE),
                 translatable(feature, GOLD),

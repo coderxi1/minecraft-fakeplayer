@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.StringJoiner;
 
 import static net.kyori.adventure.text.Component.*;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.format.NamedTextColor.GRAY;
 
 @Singleton
@@ -21,7 +22,7 @@ public class KillCommand extends AbstractCommand {
         var fakes = super.getFakeplayers(sender, args);
 
         if (fakes.isEmpty()) {
-            sender.sendMessage(translatable("fakeplayer.command.kill.error.non-removed", GRAY));
+            sender.sendMessage(translatableWithPrefix("fakeplayer.command.kill.error.non-removed", GRAY));
             return;
         }
 

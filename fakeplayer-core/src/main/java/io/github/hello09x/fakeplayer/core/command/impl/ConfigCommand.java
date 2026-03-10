@@ -19,6 +19,7 @@ import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 import static net.kyori.adventure.text.Component.*;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.JoinConfiguration.separator;
 import static net.kyori.adventure.text.event.ClickEvent.runCommand;
 import static net.kyori.adventure.text.format.NamedTextColor.*;
@@ -48,7 +49,7 @@ public class ConfigCommand extends AbstractCommand {
 
         var option = (String) Objects.requireNonNull(args.get("option"));
         featureManager.setFeature(sender, feature, option);
-        sender.sendMessage(translatable(
+        sender.sendMessage(translatableWithPrefix(
                 "fakeplayer.command.config.set.success",
                 translatable(feature.translationKey(), GOLD),
                 text(option, WHITE)

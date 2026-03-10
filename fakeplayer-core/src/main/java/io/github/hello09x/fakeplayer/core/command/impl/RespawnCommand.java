@@ -8,6 +8,7 @@ import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 
 @Singleton
 public class RespawnCommand extends AbstractCommand {
@@ -18,7 +19,7 @@ public class RespawnCommand extends AbstractCommand {
     public void respawn(@NotNull CommandSender sender, @NotNull CommandArguments args) throws WrapperCommandSyntaxException {
         var fake = super.getFakeplayer(sender, args, Entity::isDead);
         bridge.fromPlayer(fake).respawn();
-        sender.sendMessage(translatable("fakeplayer.command.generic.success"));
+        sender.sendMessage(translatableWithPrefix("fakeplayer.command.generic.success"));
     }
 
 }

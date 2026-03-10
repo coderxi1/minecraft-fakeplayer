@@ -36,6 +36,7 @@ import java.util.concurrent.CompletableFuture;
 
 import static net.kyori.adventure.text.Component.text;
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.format.NamedTextColor.*;
 
 public class Fakeplayer {
@@ -188,7 +189,7 @@ public class Fakeplayer {
             // 如果生成世界等于目的世界, 则需要穿越一次维度才能获取刷怪能力
             var otherWorld = WorldUtils.getOtherWorld(from.getWorld());
             if (otherWorld == null || !player.teleport(otherWorld.getSpawnLocation())) {
-                this.creator.sendMessage(translatable(
+                this.creator.sendMessage(translatableWithPrefix(
                         "fakeplayer.command.spawn.error.no-mob-spawning-ability",
                         text(player.getName(), WHITE)
                 ).color(GRAY));
@@ -197,7 +198,7 @@ public class Fakeplayer {
 
         Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
             if (!EntityUtils.teleportAndSound(player, to)) {
-                this.creator.sendMessage(translatable(
+                this.creator.sendMessage(translatableWithPrefix(
                         "fakeplayer.command.spawn.error.teleport-failed",
                         text(player.getName(), WHITE)
                 ).color(GRAY));

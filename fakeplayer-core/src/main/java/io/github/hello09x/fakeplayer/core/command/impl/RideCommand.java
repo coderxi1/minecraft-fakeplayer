@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static net.kyori.adventure.text.Component.text;
 import static net.kyori.adventure.text.Component.translatable;
+import static com.coderxi.plugin.utils.translation.MessageUtils.translatableWithPrefix;
 import static net.kyori.adventure.text.format.NamedTextColor.RED;
 import static net.kyori.adventure.text.format.NamedTextColor.WHITE;
 
@@ -52,7 +53,7 @@ public class RideCommand extends AbstractCommand {
         var fake = getFakeplayer(sender, args);
         var entity = (Entity) args.get("entity");
         if (entity == fake) {
-            sender.sendMessage(translatable("fakeplayer.command.ride.entity.error.ride-self").color(RED));
+            sender.sendMessage(translatableWithPrefix("fakeplayer.command.ride.entity.error.ride-self").color(RED));
             return;
         }
         if (entity == null) {
@@ -63,7 +64,7 @@ public class RideCommand extends AbstractCommand {
         }
 
         if (entity.getWorld() != fake.getWorld() || entity.getLocation().distance(fake.getLocation()) > 24) {
-            sender.sendMessage(translatable("fakeplayer.command.ride.entity.error.too-far", text(fake.getName(), WHITE)).color(RED));
+            sender.sendMessage(translatableWithPrefix("fakeplayer.command.ride.entity.error.too-far", text(fake.getName(), WHITE)).color(RED));
             return;
         }
 
@@ -94,7 +95,7 @@ public class RideCommand extends AbstractCommand {
     public void rideMe(@NotNull Player sender, @NotNull CommandArguments args) throws WrapperCommandSyntaxException {
         var fake = getFakeplayer(sender, args);
         if (!fake.getWorld().equals(sender.getWorld()) || fake.getLocation().distance(sender.getLocation()) > 20) {
-            sender.sendMessage(translatable(
+            sender.sendMessage(translatableWithPrefix(
                     "fakeplayer.command.ride.me.error.too-far",
                     text(fake.getName(), WHITE)).color(RED)
             );
