@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/coderxi1/minecraft-fakeplayer/compare/v1.1.2...v1.1.3) (2026-03-11)
+
+
+### Bug Fixes
+
+* add placeholder fakeplayer_actions_translated ([66f2af6](https://github.com/coderxi1/minecraft-fakeplayer/commit/66f2af68cf176e731cb56fe15804f6482cbbab3e))
+
 ## [1.1.2](https://github.com/coderxi1/minecraft-fakeplayer/compare/v1.1.1...v1.1.2) (2026-03-10)
 
 
