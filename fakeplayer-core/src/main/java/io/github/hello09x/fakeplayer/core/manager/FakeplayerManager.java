@@ -18,6 +18,7 @@ import io.github.hello09x.fakeplayer.core.manager.naming.NameManager;
 import io.github.hello09x.fakeplayer.core.repository.model.Feature;
 import io.github.hello09x.fakeplayer.core.util.AddressUtils;
 import io.github.hello09x.fakeplayer.core.util.Commands;
+import lombok.AllArgsConstructor;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -463,10 +464,10 @@ public class FakeplayerManager {
     /**
      * 以控制台身份对玩家执行命令
      *
-     * @param player   假人
+     * @param args   参数
      * @param commands 命令
      */
-    public void dispatchCommands(@NotNull Player player, @NotNull List<String> commands) {
+    public void dispatchCommands(@NotNull DispatchCommandArgs args, @NotNull List<String> commands) {
         if (commands.isEmpty()) {
             return;
         }
@@ -474,9 +475,9 @@ public class FakeplayerManager {
         var server = Bukkit.getServer();
         var sender = Bukkit.getConsoleSender();
 
-        var p = player.getName();
-        var u = player.getUniqueId().toString();
-        var c = Objects.requireNonNull(this.getCreatorName(player));
+        var p = args.fakeplayerName;
+        var u = args.fakeplayerUUID;
+        var c = args.creatorName;
         for (var cmd : Commands.formatCommands(commands, "%p", p, "%u", u, "%c", c)) {
             if (!server.dispatchCommand(sender, cmd)) {
                 log.warning("Failed to execute command for %s: ".formatted(p) + cmd);
@@ -484,6 +485,21 @@ public class FakeplayerManager {
                 log.info("Dispatched command: " + cmd);
             }
         }
+    }
+
+    /**
+     * 以控制台身份对玩家执行命令
+     *
+     * @param player   假人
+     * @param commands 命令
+     */
+    public void dispatchCommands(@NotNull Player player, @NotNull List<String> commands) {
+        this.dispatchCommands(new DispatchCommandArgs(player.getName(),player.getUniqueId().toString(),Objects.requireNonNull(this.getCreatorName(player))),commands);
+    }
+
+    @AllArgsConstructor
+    public static class DispatchCommandArgs {
+        public String fakeplayerName , fakeplayerUUID, creatorName;
     }
 
     /**
