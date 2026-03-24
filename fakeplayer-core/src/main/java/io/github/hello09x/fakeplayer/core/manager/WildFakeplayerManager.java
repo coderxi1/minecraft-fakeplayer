@@ -7,6 +7,9 @@ import io.github.hello09x.fakeplayer.core.Main;
 import io.github.hello09x.fakeplayer.core.config.FakeplayerConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.jetbrains.annotations.NotNull;
 
@@ -16,7 +19,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Singleton
-public class WildFakeplayerManager implements PluginMessageListener {
+public class WildFakeplayerManager implements PluginMessageListener, Listener {
 
     private final static Logger log = Main.getInstance().getLogger();
     private final static boolean IS_BUNGEECORD = Bukkit
@@ -44,6 +47,20 @@ public class WildFakeplayerManager implements PluginMessageListener {
         this.manager = manager;
         this.config = config;
         Bukkit.getScheduler().runTaskTimer(Main.getInstance(), this::cleanup, 0, CLEANUP_PERIOD);
+        Bukkit.getPluginManager().registerEvents(this, Main.getInstance());
+    }
+
+    // 玩家离开后立刻触发一次清理，而不是等5分钟轮询
+    @EventHandler
+    public void handleFollowQuitingForce(PlayerQuitEvent event) {
+        if (!config.isFollowQuiting() || !config.isFollowQuitingForce()) return;
+        Bukkit.getScheduler().runTaskLater(Main.getInstance(),()->{
+            List<Player> targets = manager.getAll(event.getPlayer());
+            if(targets.isEmpty()) return;
+            for (var target : targets) {
+                manager.remove(target.getName(), "Creator offline");
+            }
+        },config.getFollowQuitingForceDelay()*20);
     }
 
     @Override

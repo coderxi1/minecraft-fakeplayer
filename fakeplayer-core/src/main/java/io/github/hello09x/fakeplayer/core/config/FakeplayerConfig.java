@@ -71,6 +71,8 @@ public class FakeplayerConfig extends PluginConfig {
      * 创建者玩家下线时是否跟随下线
      */
     private boolean followQuiting;
+    private boolean followQuitingForce;
+    private Integer followQuitingForceDelay;
 
     /**
      * 是否探测 IP
@@ -186,6 +188,8 @@ public class FakeplayerConfig extends PluginConfig {
         this.playerLimit = maxIfZero(file.getInt("player-limit", 1));
         this.serverLimit = maxIfZero(file.getInt("server-limit", 1000));
         this.followQuiting = file.getBoolean("follow-quiting", true);
+        this.followQuitingForce = file.getBoolean("follow-quiting-force", false);
+        this.followQuitingForceDelay = file.getInt("follow-quiting-delay", 3);
         this.detectIp = file.getBoolean("detect-ip", false);
         this.kaleTps = file.getInt("kale-tps", 0);
         this.selfCommands = file.getStringList("self-commands");
