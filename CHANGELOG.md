@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/coderxi1/minecraft-fakeplayer/compare/v1.1.3...v1.2.0) (2026-03-24)
+
+
+### Features
+
+* remove fakeplayer immediately on creator quit ([d6041da](https://github.com/coderxi1/minecraft-fakeplayer/commit/d6041da6b983be844dbb51952bcb7834217bda79))
+
+
+### Bug Fixes
+
+* config after-quit-commands invalid ([d8ae21e](https://github.com/coderxi1/minecraft-fakeplayer/commit/d8ae21e66618d9164df57e54bdcb068dca88f785))
+* skip fakeplayer removal on rapid reconnection ([fbf03ce](https://github.com/coderxi1/minecraft-fakeplayer/commit/fbf03cec8ab16574b6ec055f3db7aa4b7f70a80c))
+
 ## [1.1.3](https://github.com/coderxi1/minecraft-fakeplayer/compare/v1.1.2...v1.1.3) (2026-03-11)
 
 
