@@ -116,7 +116,7 @@ prevent-kicking: ON_SPAWNING
 # Define whether fake personas will be removed when the creator quited.
 follow-quiting: true
 # 默认情况下跟随下线逻辑是根据5分钟的定时任务进行，如果你想在玩家退出时立刻执行清理,可使用此选项
-# delay:玩家退出时延迟x秒执行
+# delay:玩家退出时延迟x秒执行(若玩家在x秒内重新上线则假人不会被删除)
 # remove fake personas immediately when the creator quited.
 follow-quiting-force: true
 follow-quiting-force-delay: 3

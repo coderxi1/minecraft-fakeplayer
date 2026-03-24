@@ -55,6 +55,7 @@ public class WildFakeplayerManager implements PluginMessageListener, Listener {
     public void handleFollowQuitingForce(PlayerQuitEvent event) {
         if (!config.isFollowQuiting() || !config.isFollowQuitingForce()) return;
         Bukkit.getScheduler().runTaskLater(Main.getInstance(),()->{
+            if (Bukkit.getPlayer(event.getPlayer().getUniqueId()) != null) return;
             List<Player> targets = manager.getAll(event.getPlayer());
             if(targets.isEmpty()) return;
             for (var target : targets) {
